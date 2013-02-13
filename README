@@ -5,7 +5,8 @@
 
 " コマンド
 :GruntCreate
-現在のディレクトリにMakefileを作成します
+現在のディレクトリにgrunt.jsを作成します。
+生成されるgrunt.jsはGruntTemplateコマンドで編集可能です
 
 :GruntEdit
 grunt-default.vimで使用されるgrunt.jsを検索し、開きます
@@ -24,13 +25,13 @@ gurntコマンドの一時停止を解除します。
 :GruntStop
 現在ファイルから実行されるgruntコマンドを停止します。
 grunt.jsの1行目に
-# grunt-default stopped.
+// grunt-default stopped.
 の行が追加されます。
 
 :GruntPlay
 現在ファイルから実行されるgruntコマンドの停止を解除します。
 grunt.jsの1行目が
-# grunt-default stopped.
+// grunt-default stopped.
 となっていた場合、この行が取り除かれます。
 
 
