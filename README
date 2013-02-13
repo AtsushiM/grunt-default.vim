@@ -1,0 +1,53 @@
+ファイル保存時、自動的にgruntコマンドを実行するプラグインです。
+編集したファイルからディレクトリを遡ってgrunt.jsが存在した時点でgruntコマンドを実行します。
+
+!デフォルトでは拡張子に関係なく、ファイル保存時にmakeコマンドが実行されます
+
+" コマンド
+:GruntCreate
+現在のディレクトリにMakefileを作成します
+
+:GruntEdit
+grunt-default.vimで使用されるgrunt.jsを検索し、開きます
+grunt.jsが存在しない場合、何もしません
+
+:GruntTemplate
+GruntCreateで生成されるgrunt.jsのテンプレートを編集します
+
+:GruntPause
+gruntコマンドの自動実行を一時的に停止します。
+Vimを再起動した場合、一時停止は解除されます。
+
+:GruntResume
+gurntコマンドの一時停止を解除します。
+
+:GruntStop
+現在ファイルから実行されるgruntコマンドを停止します。
+grunt.jsの1行目に
+# grunt-default stopped.
+の行が追加されます。
+
+:GruntPlay
+現在ファイルから実行されるgruntコマンドの停止を解除します。
+grunt.jsの1行目が
+# grunt-default stopped.
+となっていた場合、この行が取り除かれます。
+
+
+" 設定
+" 指定した拡張子のファイル保存時にgrunt実行
+" 例：jsファイルで実行する場合
+let g:grunt_default_file = ['js']
+
+" 例：js,phpで実行する場合
+let g:grunt_default_file = ['js', 'php']
+
+" ディレクトリを遡る最大数
+let g:grunt_default_cdloop = 5
+
+" 発見した場合にgruntコマンドを実行
+let g:grunt_default_makefile = 'grunt.js'
+
+" 実行するコマンド
+" エラー表示なし(バックエンド実行)
+let g:grunt_default_cmd = 'grunt&'
